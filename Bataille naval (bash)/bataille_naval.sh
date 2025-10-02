@@ -15,3 +15,5 @@
 #                 Aussi, Le dernier joueurs à mettre en place ces bateaux est le premier à jouer (pareils, sinon il pourrais voir les bateaux de l'adversaire)
 
 
+
+

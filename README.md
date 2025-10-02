@@ -15,7 +15,8 @@ C# --> GUI
 
 ## Morpions (Bash, python, C#)
 Bash --> CLI
-Python --> 
+Python --> GUI
+C# --> GUI
 
 ## Le juste prix (Bash, python)
 Bash --> CLI
