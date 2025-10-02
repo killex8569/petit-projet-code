@@ -50,3 +50,6 @@ Python --> CLI et GUI
 
 ## Formulaire (Web --> Html, css (Bootstrap), php (Laravel), js (React))
 --> Refaire un Site web fonctionnelle (BDD, framework etc...)
+
+## Piment
+Table pompier, caserne, interface qui affiche les casernes et sur chaques casernes affiche les pompiers qui sont relier à chaques casernes. + Authentification, singleton (Pour BDD je crois), CSRF (Token qui est créer lors du post, le token permet de vérifier que c'est bien l'utilisateur qui est connecter mais pas un bot ou autre qui download)
