@@ -6,12 +6,11 @@ Pour apprendre le dev et l'algo, pratiquer sur plusieurs langages, Bash (préfé
 ---
 # Niveau facile (jeux)
 
-## Bataille naval (Bash, python, java, C#)
-Bash --> CLI
-Python --> CLI et / ou GUI
-Java --> GUI
-C# --> GUI
 
+## Les types de tri (bull, par tas, séléction, insertion, quicksort) (Bash, python et C)
+Bash --> All
+Python --> All
+C --> Bull, séléction, insertion et quicksort (pas de tas pour le moment) 
 
 ## Morpions (Bash, python, C#)
 Bash --> CLI
@@ -27,11 +26,15 @@ Python --> CLI et GUI
 
 # Niveau intermédiaire (Algo)
 
+## Tri sur des tableau 
 
-## Les types de tri (bull, par tas, séléction, insertion, quicksort) (Bash, python et C)
-Bash --> All
-Python --> All
-C --> Bull, séléction, insertion et quicksort (pas de tas pour le moment) 
+
+## Bataille naval (Bash, python, java, C#)
+Bash --> CLI
+Python --> CLI et / ou GUI
+Java --> GUI
+C# --> GUI
+
 
 ## Gestionnaire de quiz (Bash, Java, web et python)
 Bash --> CLI
