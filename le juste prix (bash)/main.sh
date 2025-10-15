@@ -25,7 +25,7 @@ while [ rep_user != random_nb ]; do
 
 
     ((vie--))
-    if (( $vie <= 0 )); then
+    if (( $vie == 0 )); then
     echo "Perdu, le nb était : $random_nb"
     break
     fi
