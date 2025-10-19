@@ -29,6 +29,11 @@ Le Craps est un jeu de dés populaire en Amérique du Nord. L'ordinateur lance l
 --> Mise en place d'une variable argent = 1000
 
 
+# Pierre, feuille Ciseaux
+
+Tout est dans le nom
+
+
 ---
 
 # Niveau intermédiaire (Algo)
