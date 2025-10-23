@@ -23,7 +23,13 @@ C# --> GUI
 Bash --> CLI
 Python --> CLI et GUI
 
-# Craps
+## Pierre papier ciseau
+
+## le pendu
+
+
+
+## Craps
 
 Le Craps est un jeu de dés populaire en Amérique du Nord. L'ordinateur lance les dés, si au premier lancé vous obtenez 7 ou 11, vous doublez votre mise. Si vous obtenez 2, 3 ou 12, vous perdez. Pour toute autre valeur, vous relancez les dés, jusqu'à obtenir la même valeur de nouveau, ce qui doublera votre mise. Mais si dans l'intervalle vous obtenez un 7, vous perdez.
 --> Mise en place d'une variable argent = 1000
@@ -37,6 +43,13 @@ Tout est dans le nom
 ---
 
 # Niveau intermédiaire (Algo)
+
+
+## Mastermind (avec des chiffres ou des couleurs)
+
+
+## Puissance 4
+
 
 ## Tri sur des tableau 
 
