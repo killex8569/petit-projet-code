@@ -8,6 +8,6 @@ Le jeu du bingo se définit par les règles suivantes :
 - Recréer le jeu de Bingo.  
 - Définir 2 cartes de jeu de manière aléatoire pour le joueur.  
 - Faire de même pour un ordinateur.  
-- À chaque tirage, générer un nombre aléatoire et vérifier dans les deux tableaux des joueurs/ordinateur si le nombre est présent ; si oui, le retirer du tableau.  
+- À chaque tirage, générer un nombre aléatoire. On vérifie dans un premier temps que le nombre aléatoire n'est pas déjà tomber avant, si il est tomber, on refait le tirage, sinon on peut vérifier dans les deux tableaux des joueurs/ordinateur si le nombre est présent ; si oui, le retirer du tableau.  
 - Si un joueur n’a plus de nombres sur ses deux cartes, il est déclaré gagnant.  
 - Pour passer au tirage suivant, le joueur doit appuyer sur une touche (Entrée, 1, a, espace, etc.).
