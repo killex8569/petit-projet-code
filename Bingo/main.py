@@ -9,7 +9,6 @@ bingo_2_j = []
 bingo_1_o = []
 bingo_2_o = []
 
-nb_tirer = []
 
 # Tirage de la manière suivante : 
 # 15 nombre entre 0 et 89
