@@ -11,13 +11,15 @@ bingo_2_o = []
 nb_tirer = []
 
 # Tirage de la manière suivante : 
-# 15 nombre entre 1 et 89
+# 15 nombre entre 0 et 89
 
 def create_grille(list_tableau):
     i = 0
+    j = 0
     while i <= taille_grille:
         nb = random.randrange(90)
-        list_tableau.append(nb)
+        if nb not in list_tableau:
+            list_tableau.append(nb)
         i = i + 1
 
 
@@ -38,5 +40,8 @@ def main_menu():
         create_grille(bingo_2_o)
         print("Votre grille 1 : ", bingo_1_j, "\nGrille 2 : ", bingo_2_j)
         print("Grille de votre adversaire : ", bingo_1_o, "\nGrille 2 : ", bingo_2_o)
+    else:
+        print("Votre réponse n'est pas valide")
+        main_menu()
 
 main_menu()
