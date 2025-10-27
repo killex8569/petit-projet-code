@@ -22,11 +22,19 @@ def create_grille(list_tableau):
             i = i + 1
 
 def tirage_1(list_tableau, list_tableau_ordi):
-    print("tirage")
     while len(bingo_1_j) or len(bingo_2_j) or len(bingo_1_o) or len(bingo_2_o) > 0:
         nb_tirage = random.randrange(90)
         print("Le nombre choisi est : ", nb_tirage)
-        if nb_tirage in list_tableau:
+        if nb_tirage in list_tableau and nb_tirage in list_tableau_ordi:
+            verif_victoire_1()
+            list_tableau.remove(nb_tirage)
+            list_tableau_ordi.remove(nb_tirage)
+            time.sleep(1)
+            print("Vous aviez tout deux un nombre identique dans votre bingo ! ", nb_tirage)
+            print(bingo_1_j, "reste : ", len(list_tableau))
+            print("L'ord avait un nb dans sa liste ! rest : ", len(list_tableau_ordi))
+            time.sleep(1)
+        elif nb_tirage in list_tableau:
             verif_victoire_1()
             list_tableau.remove(nb_tirage)
             time.sleep(1)
@@ -61,7 +69,7 @@ def verif_victoire_2():
 
 def main_menu():
     print("Bienvenue dans le Bingo en python.\nSéléctionner votre mode de jeu : ")
-    print("1 - 1 seul grille\n2 - 2 Grilles\n3 - JcJ\n4 - Ordi1 vs Ordi2")
+    print("1 - 1 seul grille\n2 - 2 Grilles\n3 - JcJ\n4 - Ordi1 vs Ordi2\n5 - Quitter")
     rep = int(input("Veuillez choisir votre mode de jeu : "))
     if rep == 1:
         create_grille(bingo_1_j)
@@ -77,6 +85,8 @@ def main_menu():
         create_grille(bingo_2_o)
         print("Votre grille 1 : ", bingo_1_j, "\nGrille 2 : ", bingo_2_j)
         print("Grille de votre adversaire : ", bingo_1_o, "\nGrille 2 : ", bingo_2_o)
+    elif rep == 5:
+        quit()
     else:
         print("Votre réponse n'est pas valide")
         main_menu()
