@@ -2,6 +2,7 @@
 # --> 6 de hauteur 7 de largeur
 
 import random
+import time
 
 ROWS = 6
 COLS = 7
@@ -21,22 +22,24 @@ def affichage_grille():
 
 def tour_joueur():
     print("tour du joueur (Les X)")
-    colonne = int(input("Quelle colonne voulez jouer ? : "))
+    rep_user = int(input("Quelle colonne voulez jouer ? : "))
+    colonne = rep_user - 1
 
     # Sécurité
     if colonne < 0 or colonne >= len(grille[0]):
         print("Colonne invalide")
         return
     
-
     for i in range(len(grille) - 1, -1, -1):
         if grille[i][colonne] == "*":
             grille[i][colonne] = "X"
+            affichage_grille()
             return
         
 def tour_bot():
     print("tour du BOT (Les O)")
-    colonne = random.randint(1, COLS)
+    time.sleep(1)
+    colonne = random.randint(0, COLS - 1)
 
     # Sécurité
     if colonne < 0 or colonne >= len(grille[0]):
@@ -47,9 +50,55 @@ def tour_bot():
     for i in range(len(grille) - 1, -1, -1):
         if grille[i][colonne] == "*":
             grille[i][colonne] = "O"
+            affichage_grille()
+            verif_victoire("X")
             return
 
-tour_joueur()
-affichage_grille()
-tour_bot()
-affichage_grille()
+def verif_victoire(type_joueur):
+    # Horizontal
+    for r in range(ROWS):
+        for c in range(COLS - 3):
+            if all(grille[r][c+i] == type_joueur for i in range(4)):
+                return True
+
+    # Vertical
+    for r in range(ROWS - 3):
+        for c in range(COLS):
+            if all(grille[r+i][c] == type_joueur for i in range(4)):
+                return True
+
+    # Diagonal montante (/) 
+    # On part des lignes 3 à 5 et on remonte
+    for r in range(3, ROWS):
+        for c in range(COLS - 3):
+            if (grille[r][c] == type_joueur and 
+                grille[r-1][c+1] == type_joueur and 
+                grille[r-2][c+2] == type_joueur and 
+                grille[r-3][c+3] == type_joueur):
+                return True
+
+    # Diagonal descendante (\)
+    # On part des lignes 0 à 2 et on descend
+    for r in range(ROWS - 3):
+        for c in range(COLS - 3):
+            if (grille[r][c] == type_joueur and 
+                grille[r+1][c+1] == type_joueur and 
+                grille[r+2][c+2] == type_joueur and 
+                grille[r+3][c+3] == type_joueur):
+                return True
+    return False
+
+
+
+
+def main():
+    while True:
+        tour_joueur()
+        if verif_victoire("X"):
+            print("Bien jouer, tu as gagner !")
+            break
+        tour_bot()
+        if verif_victoire("O"):
+            print("Dommage, le bot à gagner")
+            break
+main()
