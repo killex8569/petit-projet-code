@@ -1,10 +1,9 @@
-import PPC as pfc
-import test as t
-
+import PFC as pfc
+import jp as jp
 def main_menu():
     while True:
         print("menu principal")
-        print("quelle est le jeu que vous voulez faire : \n1 - Pierre feuille ciseau\n2 - le juste nombre\n3 - Quitter")
+        print("quelle est le jeu que vous voulez faire : \n1 - Pierre feuille ciseau\n2 - le juste nombre\n3 - Bataille naval\n4 - gambling\n5 - jeu batonnet\n6 - pendu\n7 - mastermind\n8 - morpions\n9 - wordle\n10 - mot mêle\n11 - petit BAC\n12 - reflexe\n\n13 - Quitter")
         try:
             rep_user = int(input("Quel est votre choix ? : "))
         except ValueError:
@@ -15,10 +14,32 @@ def main_menu():
             case 1:
                 pfc.main_pfc()
             case 2:
-                t.main()
+                jp.main_jp()
             case 3:
+                continue
+            case 4:
+                continue
+            case 5:
+                continue
+            case 6:
+                continue
+            case 7:
+                continue
+            case 8:
+                continue
+            case 9:
+                continue
+            case 10:
+                continue
+            case 11:
+                continue
+            case 12:
+                continue
+            case 13:
+                print("Au revoir")
                 break
             case _:
+                
                 print("Choix invalide.")
 if __name__ == "__main__":
     main_menu()
