@@ -5,5 +5,6 @@
 # - Mode joueur (tire le pénalty)
 # - Mode gardien (Doit stopper les pénalty)
 # - Mode Gardien + (Ajout de nouvelle stats en plus --> Probabilité de tire à gauche/droite, Position du gardien (gauche bas, gauche haut, centre, droite bas, droite haut)--> Si bonne zone 95 % arrêt, sinon proba en fonction des stats du gardien)
-
+# - Mode Online --> Architecture client serveur
+ 
 
