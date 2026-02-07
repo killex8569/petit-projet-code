@@ -20,8 +20,8 @@ def affichage_grille():
         print(i, end=" ") # Tout sur la même ligne
     print("") # saut de ligne
 
-def tour_joueur():
-    print("tour du joueur (Les X)")
+def tour_joueur(player_name):
+    print("tour du joueur : ", player_name)
     rep_user = int(input("Quelle colonne voulez jouer ? : "))
     colonne = rep_user - 1
 
@@ -33,6 +33,24 @@ def tour_joueur():
     for i in range(len(grille) - 1, -1, -1):
         if grille[i][colonne] == "*":
             grille[i][colonne] = "X"
+            affichage_grille()
+            return
+        
+
+
+def tour_joueur2(player_name):
+    print("tour du joueur : ", player_name)
+    rep_user = int(input("Quelle colonne voulez jouer ? : "))
+    colonne = rep_user - 1
+
+    # Sécurité
+    if colonne < 0 or colonne >= len(grille[0]):
+        print("Colonne invalide")
+        return
+    
+    for i in range(len(grille) - 1, -1, -1):
+        if grille[i][colonne] == "*":
+            grille[i][colonne] = "O"
             affichage_grille()
             return
         
@@ -91,7 +109,7 @@ def verif_victoire(type_joueur):
 
 
 
-def main():
+def joueurVsBot():
     while True:
         tour_joueur()
         if verif_victoire("X"):
@@ -101,4 +119,37 @@ def main():
         if verif_victoire("O"):
             print("Dommage, le bot à gagner")
             break
+
+
+def joueurVsjoueur():
+    joueur1 = str(input("Veuillez renseigner le nom du joueur 1 : "))
+    joueur2 = str(input("Veuillez renseigner le nom du joueur 2 : "))
+    while True:
+        try:
+            tour_joueur(joueur1)
+            if verif_victoire("X"):
+                print("Le joueur 1 : ", joueur1, "remporte la partie")
+                break
+            tour_joueur2(joueur2)
+            if verif_victoire("O"):
+                print("Le joueur 2 : ", joueur2, "remporte la partie")
+                break
+        except ValueError:
+            print("Mauvaise entrée, veuillez réessayez...") 
+
+def main():
+    while True:
+        try:
+            print("Bienvenue dans le main Menu : \nSéléctionner votre mode de jeu : \n1 - Joueur Vs Bot\n2 - Joueur Vs Joueur\n3 - Quitter")
+            rep_user = (int(input("Votre choix : ")))
+            if rep_user == 1:
+                joueurVsBot()
+            elif rep_user == 2:
+                joueurVsjoueur()
+            elif rep_user == 3:
+                print("Good bye")
+                break
+        except ValueError:
+            print("Mauvaise entrée, veuillez réessayez...")       
+
 main()
