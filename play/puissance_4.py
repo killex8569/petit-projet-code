@@ -10,6 +10,9 @@ grille = [["*"] * COLS for _ in range(ROWS)]
 
 suite = 4
 
+def clean_up():
+    global grille # modifie la variable
+    grille = [["*"] * COLS for _ in range(ROWS)] # Etat initial
 
 
 def affichage_grille():
@@ -110,14 +113,17 @@ def verif_victoire(type_joueur):
 
 
 def joueurVsBot():
+    joueur1 = str(input("Veuillez renseigner votre nom : "))
     while True:
-        tour_joueur()
+        tour_joueur(joueur1)
         if verif_victoire("X"):
             print("Bien jouer, tu as gagner !")
+            clean_up()
             break
         tour_bot()
         if verif_victoire("O"):
             print("Dommage, le bot à gagner")
+            clean_up()
             break
 
 
@@ -129,10 +135,12 @@ def joueurVsjoueur():
             tour_joueur(joueur1)
             if verif_victoire("X"):
                 print("Le joueur 1 : ", joueur1, "remporte la partie")
+                clean_up()
                 break
             tour_joueur2(joueur2)
             if verif_victoire("O"):
                 print("Le joueur 2 : ", joueur2, "remporte la partie")
+                clean_up()
                 break
         except ValueError:
             print("Mauvaise entrée, veuillez réessayez...") 
