@@ -8,6 +8,9 @@ ROWS = 6
 COLS = 7
 grille = [["*"] * COLS for _ in range(ROWS)]
 
+def create_grid(rows, cols):
+    return [["*"] * cols for _ in range(rows)]
+
 suite = 4
 
 def clear_screen():
@@ -28,41 +31,50 @@ def affichage_grille():
     print("") # saut de ligne
 
 def tour_joueur(player_name):
-    print("tour du joueur : ", player_name)
-    rep_user = int(input("Quelle colonne voulez jouer ? : "))
-    colonne = rep_user - 1
+    while True:
+        try:
 
-    # Sécurité
-    if colonne < 0 or colonne >= len(grille[0]):
-        print("Colonne invalide")
-        return
-    
-    for i in range(len(grille) - 1, -1, -1):
-        if grille[i][colonne] == "*":
-            grille[i][colonne] = "X"
-            clear_screen()
-            affichage_grille()
-            return
+            print("tour du joueur : ", player_name)
+            rep_user = int(input("Quelle colonne voulez jouer ? : "))
+            colonne = rep_user - 1
+
+            # Sécurité
+            if colonne < 0 or colonne >= len(grille[0]):
+                print("Colonne invalide")
+                continue
+            
+            for i in range(len(grille) - 1, -1, -1):
+                if grille[i][colonne] == "*":
+                    grille[i][colonne] = "X"
+                    clear_screen()
+                    affichage_grille()
+                    return
+        except ValueError:
+            print("Mauvaise entrée, veuillez réessayez...") 
         
 
-
+# TOUR DU JOUEUR 2
 def tour_joueur2(player_name):
-    print("tour du joueur : ", player_name)
-    rep_user = int(input("Quelle colonne voulez jouer ? : "))
-    colonne = rep_user - 1
-
-    # Sécurité
-    if colonne < 0 or colonne >= len(grille[0]):
-        print("Colonne invalide")
-        return
-    
-    for i in range(len(grille) - 1, -1, -1):
-        if grille[i][colonne] == "*":
-            grille[i][colonne] = "O"
-            clear_screen()
-            affichage_grille()
-            return
+    while True:
+        try:
+            print("tour du joueur : ", player_name)
+            rep_user = int(input("Quelle colonne voulez jouer ? : "))
+            colonne = rep_user - 1
+            # Sécurité
+            if colonne < 0 or colonne >= len(grille[0]):
+                print("Colonne invalide")
+                continue
+            
+            for i in range(len(grille) - 1, -1, -1):
+                if grille[i][colonne] == "*":
+                    grille[i][colonne] = "O"
+                    clear_screen()
+                    affichage_grille()
+                    return
+        except ValueError:
+            print("Mauvaise entrée, veuillez réessayez...") 
         
+# TOUR DU BOT (ALEATOIRE)
 def tour_bot():
     print("tour du BOT (Les O)")
     time.sleep(1)
@@ -79,9 +91,11 @@ def tour_bot():
             grille[i][colonne] = "O"
             clear_screen()
             affichage_grille()
-            verif_victoire("X")
+            verif_victoire("O")
             return
 
+
+# VERIF VICTOIRE
 def verif_victoire(type_joueur):
     # Horizontal
     for r in range(ROWS):
@@ -152,16 +166,37 @@ def joueurVsjoueur():
         except ValueError:
             print("Mauvaise entrée, veuillez réessayez...") 
 
+def param():
+    print("Modifier les paramètres de parties : ")
+    print("1 - Modifier la taille de la grille\n2 - Modifier le nombre de pions à la suite")
+    rep_user = int(input("Votre choix : "))
+    global COLS
+    global ROWS
+    global grille
+    if rep_user == 1:
+        while True:
+            try:    
+                new_rows = int(input("Nouvelle valeur de ROWS : "))
+                new_cols = int(input("Nouvelle valeur de COLS : "))
+                ROWS = new_rows
+                COLS = new_cols
+                grille = create_grid(ROWS, COLS)
+                break
+            except ValueError:
+                print("Mauvaise entrée, veuillez réessayez...")
+
 def main():
     while True:
         try:
-            print("Bienvenue dans le main Menu : \nSéléctionner votre mode de jeu : \n1 - Joueur Vs Bot\n2 - Joueur Vs Joueur\n3 - Quitter")
+            print("Bienvenue dans le main Menu : \nSéléctionner votre mode de jeu : \n1 - Joueur Vs Bot\n2 - Joueur Vs Joueur\n3 - Paramètres\n4 - Quitter")
             rep_user = (int(input("Votre choix : ")))
             if rep_user == 1:
                 joueurVsBot()
             elif rep_user == 2:
                 joueurVsjoueur()
             elif rep_user == 3:
+                param()
+            elif rep_user == 4:
                 print("Good bye")
                 break
         except ValueError:
