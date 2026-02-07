@@ -10,6 +10,10 @@ grille = [["*"] * COLS for _ in range(ROWS)]
 
 suite = 4
 
+def clear_screen():
+    print("\033[H\033[J", end="")
+
+
 def clean_up():
     global grille # modifie la variable
     grille = [["*"] * COLS for _ in range(ROWS)] # Etat initial
@@ -36,6 +40,7 @@ def tour_joueur(player_name):
     for i in range(len(grille) - 1, -1, -1):
         if grille[i][colonne] == "*":
             grille[i][colonne] = "X"
+            clear_screen()
             affichage_grille()
             return
         
@@ -54,6 +59,7 @@ def tour_joueur2(player_name):
     for i in range(len(grille) - 1, -1, -1):
         if grille[i][colonne] == "*":
             grille[i][colonne] = "O"
+            clear_screen()
             affichage_grille()
             return
         
@@ -71,6 +77,7 @@ def tour_bot():
     for i in range(len(grille) - 1, -1, -1):
         if grille[i][colonne] == "*":
             grille[i][colonne] = "O"
+            clear_screen()
             affichage_grille()
             verif_victoire("X")
             return
@@ -159,5 +166,3 @@ def main():
                 break
         except ValueError:
             print("Mauvaise entrée, veuillez réessayez...")       
-
-main()

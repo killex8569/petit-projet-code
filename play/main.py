@@ -1,13 +1,13 @@
 import PFC as pfc
 import jp as jp
-
+import puissance_4 as p4
 
 
 
 def main_menu():
     while True:
         print("menu principal")
-        print("quelle est le jeu que vous voulez faire : \n1 - Pierre feuille ciseau\n2 - le juste nombre\n3 - Bataille naval\n4 - gambling\n5 - jeu batonnet\n6 - pendu\n7 - mastermind\n8 - morpions\n9 - wordle\n10 - mot mêle\n11 - petit BAC\n12 - reflexe\n\n13 - Quitter")
+        print("quelle est le jeu que vous voulez faire : \n1 - Pierre feuille ciseau\n2 - le juste nombre\n3 - Bataille naval\n4 - gambling\n5 - jeu batonnet\n6 - pendu\n7 - mastermind\n8 - morpions\n9 - wordle\n10 - mot mêle\n11 - petit BAC\n12 - reflexe\n13 - Puissance 4\n\n20 - Quitter")
         try:
             rep_user = int(input("Quel est votre choix ? : "))
         except ValueError:
@@ -40,6 +40,8 @@ def main_menu():
             case 12:
                 continue
             case 13:
+                p4.main()
+            case 20:
                 print("Au revoir")
                 break
             case _:
