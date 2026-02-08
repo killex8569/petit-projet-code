@@ -1,7 +1,7 @@
 import PFC as pfc
 import jp as jp
 import puissance_4 as p4
-
+import Bataille_naval.main as bn_main
 
 
 def main_menu():
@@ -20,7 +20,7 @@ def main_menu():
             case 2:
                 jp.main_jp()
             case 3:
-                continue
+                bn_main.main()
             case 4:
                 continue
             case 5:
