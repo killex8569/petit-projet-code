@@ -11,6 +11,7 @@ class Cours:
 # c = Cours()
 
 c1 = Cours(titre="Cour d'algo", nb_etudiant=30, duree=30)
-c2 = Cours(titre="Cour de POO", nb_etudiant=30, duree=30)
+c2 = Cours(titre="Cour de POO", nb_etudiant=0, duree=60)
 
 c1.afficher_infos()
+c2.afficher_infos()
