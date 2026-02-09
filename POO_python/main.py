@@ -1,4 +1,5 @@
 from abc import *
+from dataclasses import dataclass
 class Cours:
     # Constructeur
     def __init__(self, titre, nb_etudiant, duree):
@@ -98,11 +99,38 @@ class Utilisateur:
     def afficher_info(self):
         print(f"Utilisateur : {self.nom}, adresse : {self.adresse.afficher()}")
 
-adr = Adresse("453 Avenue coin strip", "Strasbourg")
-u = Utilisateur("Michel", adr)
-u.afficher_info()
 
 
+# Dunder
+
+class Livre:
+    def __init__(self, titre, auteur):
+        self.titre = titre
+        self.auteur = auteur
+    
+    # Permet de return le titre et l'auteur, sinon on aurait une adresse mémoire
+    def __str__(self):
+        return f"{self.titre} de {self.auteur}"
+    
+
+
+
+# Dataclass
+
+# Class normal
+class Utilisateur:
+    def __init__(self, nom, age):
+        self.nom = nom
+        self.age = age
+
+# Dataclasse 
+@dataclass
+class User:
+    nom: str
+    age: int
+
+u1 = Utilisateur("Michel", 30)
+u2 = User("Bob", 40)
 
 
 
@@ -118,6 +146,16 @@ u.afficher_info()
 
 
 """
+
+livre = Livre("1984", "Goerge Orwell")
+print(livre)
+
+
+adr = Adresse("453 Avenue coin strip", "Strasbourg")
+u = Utilisateur("Michel", adr)
+u.afficher_info()
+
+
 r = Rectangle(4, 5)
 print(r.surface())
 

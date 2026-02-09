@@ -56,3 +56,16 @@ Cela nous permetterais de pouvoirs
 # Dunder
 
 Méthode sécial commencant par __ et terminant par __
+Permet de changer le comportement de la classe (Print différement par exemple)
+
+![image](./data/dunder.png)
+
+il existe aussi des dunder qui permettent d evérifier des égaliter, les dunder __eq__
+
+![](./data/dunder_comparaison.png)
+
+![](./data/dunder_add_et_repr.png)
+
+# Dataclass
+
+
