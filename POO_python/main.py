@@ -131,6 +131,7 @@ class User:
 
 u1 = Utilisateur("Michel", 30)
 u2 = User("Bob", 40)
+print(u2)
 
 
 
