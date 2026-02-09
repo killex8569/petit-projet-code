@@ -1,42 +1,64 @@
-# Plusieurs modes : 
-# Mode solo (joueur vs bot/automate)
-# Mode multi joueur
-# Mode IA (Vari IA entrainer à jouer)
-# 
-# Créer en POO python 
-
-import random
-import time
-import client.client as cli
-
-class Board:
-    def __init__(self, rows=10, cols=10):
-        pass
-        self.ROWS = rows
-        self.COLS = cols
-        self.grid = [[" " for _ in range(cols)] for _ in range(rows)]
+import logic as l
 
 
+def main():
+    print("Bienvenue sur le menu principal")
+    while True:
+        try:
+            print("Mode de jeux : \n1 - Mode Solo\n2 - Mode multi (PVP)\n3 - Custom\n4 - Quitter")
+            rep_user = int(input("Quelle mode de jeu voulez vous séléctionner : "))
+        except ValueError:
+            print("Entrée invalide.")
+            continue
+        match rep_user:
+            case 1:
+                start_game()
+            case 2:
+                print("Encore en developpement")
+            case 3:
+                print("Encore en developpement")
+            case 4:
+                print("Au revoir")
+                break
 
-    def create_grid(self, rows, cols):
-        return [["*"] * cols for _ in range(rows)]
+
+
+def start_game():
+    game = l.Board()
+    nb_bateau = 5 # temporaire, mode custom permetteras de le modifier
+    bateau_placer = 0
+    game.clean_up()
     
-    def clear_screen(self):
-        print("\033[H\033[J", end="")
+    while bateau_placer < nb_bateau:
+        try:
+            game.display()
+            print("Bateau numéro : ", bateau_placer + 1)
+            row = int(input("Placer votre bateau sur qu'elle ligne : "))
+            col = int(input("Placer votre bateau sur qu'elle collone : "))
+            lenght = int(input("Qu'elle longeur fera votre bateau : "))
+            orientation = str(input("Dans qu'elle sens voulez-vous votre bateau (H/V) : "))
+            if row < 0 or row >= 10 or col < 0 or col >= 10:
+                print("Position hors grille")
+                continue
+
+            if lenght < 1 or lenght > 5:
+                print("Longueur invalide")
+                continue
+            if orientation not in ("H", "V"):
+                print("Orientation invalide")
+                continue              
+        except ValueError:
+            print("Entrée invalide.")
+            continue
         
-    def clean_up(self, COLS, ROWS):
-        grille = [["*"] * self.COLS for _ in range(self.ROWS)] # Etat initial
-    def getPlayerName(self):
-        return self.player_name
-    
-    def setPlayerName(self, player_name):
-        return player_name
+        if game.place_ship(row, col, lenght, orientation):
+            game.clear_screen()
+            print("Bateau placé")
+            game.display()
+            bateau_placer += 1
+        else:
+            print("Placement impossible")
+            continue
 
-
-
-c = Board()
-
-c.setPlayerName("Alexandre")
-print(c.getPlayerName())
-
-
+if __name__ == "__main__":
+    main()

@@ -84,3 +84,19 @@ Serveur --> Client
 - IA
 - Dockerisation
 - Tests unitaires
+
+
+
+## Modes de jeux
+
+- Mode personnaliser --> Possible d'intégrer une fonctionnalité "progressive", tout les 5 tours et jusqu'a ce qu'il obtien un total de 5 bateau (ou plus selon paramètre), il commence avec un bateau et le joueur à la possibilité de faire venir un nouveau bateau.
+- Mode Solo --> Automate intélligent (si bateau toucher, alors il tests autour des autres zones du tire réussi) sinon tir aléatoire
+- Mode multiJoueur --> Client serveur, le serveur ne s'arrête pas tant que l'on pas à entrer stop ou ctrl + c. Plusieurs parties en même temps peuvent être commencer.
+- Mode IA (bien plus tard)
+
+
+
+## Amélioration possible
+
+
+
