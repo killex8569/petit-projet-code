@@ -89,10 +89,27 @@ Serveur --> Client
 
 ## Modes de jeux
 
-- Mode personnaliser --> Possible d'intégrer une fonctionnalité "progressive", tout les 5 tours et jusqu'a ce qu'il obtien un total de 5 bateau (ou plus selon paramètre), il commence avec un bateau et le joueur à la possibilité de faire venir un nouveau bateau.
-- Mode Solo --> Automate intélligent (si bateau toucher, alors il tests autour des autres zones du tire réussi) sinon tir aléatoire
-- Mode multiJoueur --> Client serveur, le serveur ne s'arrête pas tant que l'on pas à entrer stop ou ctrl + c. Plusieurs parties en même temps peuvent être commencer.
-- Mode IA (bien plus tard)
+### Mode personnaliser
+
+possible amélioration : 
+
+- Possible d'intégrer une fonctionnalité "progressive", tout les 5 tours et jusqu'a ce qu'il obtien un total de 5 bateau (ou plus selon paramètre), il commence avec un bateau et le joueur à la possibilité de faire venir un nouveau bateau.
+- Choisir la taille de la grille (par défaut 10, 10)
+- Choisir le nombre de bateau et leurs type (Combiens de Destroyer, de Sous marin, de port-avions etc...)
+- Ajouter des nouveau objets et power Up (Genre un radar pour voirs les 4 Cases autour de celle séléctionner par le joueur, un powerUp qui permet de tirer 2 coup si on le souhaite etc... Surement d'autres powerUp, par défaut désactiver, uniquement présent si le joueur coche la case "Actvation des powerup")
+
+### Mode Solo
+
+Mode Solo --> Automate intélligent (si bateau toucher, alors il tests autour des autres zones du tire réussi) sinon tir aléatoire
+
+### Mode multiJoueur
+
+Mode multiJoueur --> Client serveur, le serveur ne s'arrête pas tant que l'on pas à entrer stop ou ctrl + c. Plusieurs parties en même temps peuvent être commencer.
+Information supplémentaire --> Chaque client peut lancer depuis l'interface un serveur ou s'y connecter (Host or connect --> Demande d'ip pour connexion ou lors de la création --> Propose de configurer les settings, le nom du serveur etc...)
+
+### Mode IA
+
+Mode IA (bien plus tard)
 
 
 

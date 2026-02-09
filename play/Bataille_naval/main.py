@@ -36,7 +36,7 @@ def start_game():
             row = int(input("Placer votre bateau sur qu'elle ligne : "))
             col = int(input("Placer votre bateau sur qu'elle collone : "))
             lenght = int(input("Qu'elle longeur fera votre bateau : "))
-            orientation = str(input("Dans qu'elle sens voulez-vous votre bateau (H/V) : "))
+            orientation = input("Dans qu'elle sens voulez-vous votre bateau (H/V) : ").strip().upper()
             if row < 0 or row >= 10 or col < 0 or col >= 10:
                 print("Position hors grille")
                 continue
@@ -56,9 +56,22 @@ def start_game():
             print("Bateau placé")
             game.display()
             bateau_placer += 1
+            if bateau_placer == 5:
+                while not game.has_lost():
+                    try:
+                        game.clear_screen()
+                        game.display()
+                        rows = int(input("Sur qu'elle ligne voulez vous tirer : "))
+                        cols = int(input("Sur qu'elle colonne voulez vous tirer : "))
+                        game.receive_hit(rows, cols)
+                    except ValueError:
+                        print("Entrée invalide.")
+                        continue  
         else:
             print("Placement impossible")
             continue
+
+
 
 if __name__ == "__main__":
     main()
