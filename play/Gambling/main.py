@@ -5,3 +5,7 @@
 # Mode Classique (plusieurs niveau de difficulté)
 # All In --> Parie max de son argent à chaque fois 
 # Double or nothing
+
+
+def main():
+    pass

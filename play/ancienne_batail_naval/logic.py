@@ -122,9 +122,5 @@ class GameEngine:
         return True
 
 
-    def turn(self):
-        while not game_over():
-            pass
-
 
 
