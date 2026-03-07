@@ -1,4 +1,5 @@
 from PFC import Pfc # Pierre feuille Ciseau
+from Gambling.main import Gambling
 import jp as jp # Juste prix
 import puissance_4 as p4 # Puissance 4
 
@@ -22,7 +23,8 @@ def main_menu():
             case 3:
                 continue
             case 4:
-                continue
+                jeu = Gambling()
+                jeu.menu()
             case 5:
                 continue
             case 6:
